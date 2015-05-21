@@ -54,6 +54,7 @@ class git (
 
   file { "${configdir}/gitignore":
     source  => 'puppet:///modules/git/gitignore',
+    replace => no,
     require => File[$configdir]
   }
 
