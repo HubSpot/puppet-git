@@ -14,7 +14,7 @@
 #   }
 define git::config::global($value, $force = true) {
   exec { "set ${name} to ${value}":
-    command => "git config --global --set ${name} ${value}",
+    command => "git config --global --unset-all ${name}; git config --global --add ${name} ${value}",
     onlyif  => "! (git config --global --get ${name}) || ${force}",
   }
 }
