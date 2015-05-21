@@ -60,6 +60,7 @@ class git (
 
   git::config::global{ 'core.excludesfile':
     value   => $global_excludesfile,
+    force   => false,
     require => File["${configdir}/gitignore"]
   }
 
